@@ -24,7 +24,7 @@ var debugconsole = {
           consoleContent +='<div id="'+this.console_content_id+'"></div>';
           consolePop.innerHTML = consoleContent;
       document.getElementsByTagName("body")[0].appendChild(consolePop);
-      console.log("[DEBUG_CONSOLE] Create console output window");
+      console.log("[DEBUG_CONSOLE]: Create console output window");
 
     }
     if (this.status=="dblog" || this.status=="db")  {}
