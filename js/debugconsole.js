@@ -1,4 +1,4 @@
-var debugconsole = {
+let debugconsole = {
   status: "log",
   error_status: false,
   error_color: "#f70505",
