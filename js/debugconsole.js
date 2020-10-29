@@ -19,9 +19,9 @@ let debugconsole = {
 
       // create console output window
       var consolePop = document.createElement("div");
-          consolePop.setAttribute("id", "console");
+          consolePop.setAttribute("id", this.console_id);
       var consoleContent = '<h2>Debug Console:</h2>';
-          consoleContent +='<div id="console_content"></div>';
+          consoleContent +='<div id="'+this.console_content_id+'"></div>';
           consolePop.innerHTML = consoleContent;
       document.getElementsByTagName("body")[0].appendChild(consolePop);
       console.log("[DEBUG_CONSOLE] Create console output window");
@@ -37,7 +37,7 @@ let debugconsole = {
     }
     var errorcolor="";
     if(thiserror) errorcolor = 'style="color:'+this.error_color+'"';
-    var consoleContent = document.getElementById(console_content_id);
+    var consoleContent = document.getElementById(this.console_content_id);
     consoleContent.innerHTML += "<p "+errorcolor+">"+content+"</p>";
     consoleContent.scrollTop = consoleContent.scrollHeight - consoleContent.clientHeight;
   }
