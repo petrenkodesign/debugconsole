@@ -30,7 +30,7 @@ var debugconsole = {
     }
   },
 
-  log(content, thiserror=this.error_status) {
+  log(content, thiserror=this.error_status, sending_data=false) {
     console.log(content);
 
     if(typeof content === 'object' && content !== null) {
@@ -45,10 +45,9 @@ var debugconsole = {
       consoleContent.scrollTop = consoleContent.scrollHeight - consoleContent.clientHeight;
     }
 
-    if (this.status=="dblog" || this.status=="db")  {
+    if (sending_data && (this.status=="dblog" || this.status=="db"))  {
       var url = new URL("https://console.smartfactory.com.ua/api/");
-      var sending_data = { mxsg: "log", clxient_id: "xxx", ixp: "2222.222.222.222",xfcm: "zzzz"};
-      var params = { key: this.api_key, do: "savelog", data: JSON.stringify(sending_data)};
+      var params = { key: this.api_key, do: "savelog", data: JSON.stringify(sending_data)}; // sending_data = { msg: "logdata", client_id: "IMEI", ip: "222.222.222.222", fcm: "FCM_ID"};
       url.search = new URLSearchParams(params).toString();
 
       fetch(url)
