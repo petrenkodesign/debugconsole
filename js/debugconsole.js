@@ -9,7 +9,7 @@ var debugconsole = {
   start(status=this.status) {
     if(status!==this.status) this.status = status;
     window.onerror = function (msg, url, lnum) {
-      debugconsole.log("Error: "+msg+"<br> URL:"+url+"<br> LineNumber:"+lnum, true);
+      debugconsole.log("Error: "+msg+"<br> URL:"+url+"<br> LineNumber:"+lnum, false, true);
     }
     if (this.status=="dblog" || this.status=="log") {
       // add to project css link
@@ -30,7 +30,7 @@ var debugconsole = {
     }
   },
 
-  log(content, thiserror=this.error_status, sending_data=false) {
+  log(content, sending_data=false, thiserror=this.error_status) {
     console.log(content);
 
     if(typeof content === 'object' && content !== null) {
@@ -39,7 +39,7 @@ var debugconsole = {
 
     if (this.status=="dblog" || this.status=="log") {
       var errorcolor="";
-      if(thiserror) errorcolor = 'style="color:'+this.error_color+'"';
+      if (thiserror) errorcolor = 'style="color:'+this.error_color+'"';
       var consoleContent = document.getElementById(this.console_content_id);
       consoleContent.innerHTML += "<p "+errorcolor+">"+content+"</p>";
       consoleContent.scrollTop = consoleContent.scrollHeight - consoleContent.clientHeight;
