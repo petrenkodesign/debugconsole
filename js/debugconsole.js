@@ -53,7 +53,7 @@ var debugconsole = {
 
       fetch(url)
       .then(answer => {
-        if (answer.status==200) console.log("Data send to API");
+        if (answer.status==200) console.log("[DEBUG_CONSOLE]: Data send to API");
       }).catch(error => {
         console.log(error);
       });
