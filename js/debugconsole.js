@@ -53,7 +53,7 @@ var debugconsole = {
 
       fetch(url)
       .then(answer => {
-        console.log(answer);
+        console.log(answer.status);
       }).catch(error => {
         console.log(error);
       });
