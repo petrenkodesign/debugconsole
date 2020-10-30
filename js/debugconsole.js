@@ -47,6 +47,7 @@ var debugconsole = {
 
     if (sending_data && (this.status=="dblog" || this.status=="db"))  {
       var url = new URL("https://console.smartfactory.com.ua/api/");
+      sending_data.msg = content;
       var params = { key: this.api_key, do: "savelog", data: JSON.stringify(sending_data)}; // sending_data = { msg: "logdata", client_id: "IMEI", ip: "222.222.222.222", fcm: "FCM_ID"};
       url.search = new URLSearchParams(params).toString();
 
