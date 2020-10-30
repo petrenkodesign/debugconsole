@@ -53,7 +53,7 @@ var debugconsole = {
 
       fetch(url)
       .then(answer => {
-        console.log(answer.status);
+        if (answer.status==200) console.log("Data send to IP");
       }).catch(error => {
         console.log(error);
       });
