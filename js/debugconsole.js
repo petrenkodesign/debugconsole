@@ -7,6 +7,7 @@ var debugconsole = {
   api_key: "AIzaSyCG3QhiTLX26Rj84CZn0qXGFd",
 
   start(status=this.status) {
+    if(status!==this.status) this.status = status;
     window.onerror = function (msg, url, lnum) {
       debugconsole.log("Error: "+msg+"<br> URL:"+url+"<br> LineNumber:"+lnum, true);
     }
