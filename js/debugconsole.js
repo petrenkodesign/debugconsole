@@ -32,7 +32,6 @@ var debugconsole = {
 
   log(content, sending_data=false, thiserror=this.error_status) {
     console.log(content);
-    console.log("[DEBUG_CONSOLE]: type of content - "+typeof content);
 
     if(typeof content === 'object' && content !== null) {
       content = JSON.stringify(content);
