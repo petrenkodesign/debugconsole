@@ -28,6 +28,7 @@ var debugconsole = {
       document.getElementsByTagName("body")[0].appendChild(consolePop);
       console.log("[DEBUG_CONSOLE]: Create console output window");
       document.querySelector("#"+this.console_id+"> h2:first-child").click(function(){
+          console.log("click");
            var console_box = document.getElementById(this.console_id);
            if(console_box.classList.item("movedown")) {
              console_box.classList.remove("movedown");
