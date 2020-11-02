@@ -28,12 +28,11 @@ var debugconsole = {
       document.getElementsByTagName("body")[0].appendChild(consolePop);
       console.log("[DEBUG_CONSOLE]: Create console output window");
       document.querySelector("#"+this.console_id+"> h2").addEventListener('click', function(event) {
-           var console_box = document.getElementById(this.console_id);
-           if(console_box.classList.item("movedown")) {
-             console_box.classList.remove("movedown");
+           if(this.classList.item("movedown")) {
+             this.classList.remove("movedown");
            }
            else {
-             console_box.classList.add("movedown");
+             this.classList.add("movedown");
            }
       });
     }
