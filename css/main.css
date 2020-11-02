@@ -44,6 +44,9 @@
   -o-transform: translateY(80px);
   -ms-transform: translateY(80px);
 }
+.movedown h2 {
+  font-size: 8pt;
+}
 .moveup {
   transform: translateY(-80vh);
   -webkit-transform: translateY(-80vh);
@@ -51,6 +54,7 @@
   -o-transform: translateY(-80vh);
   -ms-transform: translateY(-80vh);
 }
-.movedown h2 {
-  font-size: 8pt;
+.moveup #debug_console_content {
+  max-height:none;
+  height: 100%;
 }
