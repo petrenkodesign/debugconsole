@@ -8,6 +8,11 @@
     background: #fff;
     color: #888;
     font-family: sans-serif;
+    z-index: 10000000000000002;
+    -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;
 }
 #debug_console_content {
   width: 100%;
@@ -29,4 +34,13 @@
   color:#000;
   margin:0;
   background:#ccc;
+  cursor: pointer;
+}
+
+.movedown {
+  transform: translateY(80px);
+  -webkit-transform: translateY(80px);
+  -moz-transform: translateY(80px);
+  -o-transform: translateY(80px);
+  -ms-transform: translateY(80px);
 }
