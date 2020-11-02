@@ -44,3 +44,6 @@
   -o-transform: translateY(80px);
   -ms-transform: translateY(80px);
 }
+.movedown h2 {
+  font-size: 6pt;
+}
