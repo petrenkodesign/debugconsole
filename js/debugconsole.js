@@ -35,6 +35,14 @@ var debugconsole = {
              this.parentElement.classList.add("movedown");
            }
       });
+      document.querySelector("#"+this.console_id+"> h2").addEventListener('dblclick', function(event) {
+           if(this.parentElement.classList.item("moveup")) {
+             this.parentElement.classList.remove("moveup");
+           }
+           else {
+             this.parentElement.classList.add("moveup");
+           }
+      });
     }
   },
 
