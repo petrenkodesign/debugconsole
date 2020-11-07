@@ -5,6 +5,7 @@ var debugconsole = {
   console_id: "debug_console",
   console_content_id: "debug_console_content",
   api_key: "AIzaSyCG3QhiTLX26Rj84CZn0qXGFd",
+  debug: false,
 
   start(status=this.status) {
     if(status!==this.status) this.status = status;
@@ -17,7 +18,7 @@ var debugconsole = {
       css_element.rel = 'stylesheet';
       css_element.href = 'https://petrenkodesign.github.io/debugconsole/css/main.css';
       document.getElementsByTagName("head")[0].appendChild(css_element);
-      console.log("[DEBUG_CONSOLE]: Create link to CSS with createElement");
+      if (this.debug) console.log("[DEBUG_CONSOLE]: Create link to CSS with createElement");
 
       // create console output window
       var consolePop = document.createElement("div");
@@ -26,7 +27,7 @@ var debugconsole = {
           consoleContent +='<div id="'+this.console_content_id+'"></div>';
           consolePop.innerHTML = consoleContent;
       document.getElementsByTagName("body")[0].appendChild(consolePop);
-      console.log("[DEBUG_CONSOLE]: Create console output window");
+      if (this.debug) console.log("[DEBUG_CONSOLE]: Create console output window");
       document.querySelector("#"+this.console_id+"> h2").addEventListener('click', function(event) {
            if(this.parentElement.classList.item("movedown")) {
              this.parentElement.classList.remove("movedown");
@@ -69,14 +70,14 @@ var debugconsole = {
 
       fetch(url)
       .then(answer => {
-        if (answer.status==200) console.log("[DEBUG_CONSOLE]: Data send to API");
+        if (answer.status==200 && this.debug) console.log("[DEBUG_CONSOLE]: Data send to API");
         else {
-          console.log("[DEBUG_CONSOLE]: API answer is ->");
-          console.log(answer);
+          if (this.debug) console.log("[DEBUG_CONSOLE]: API answer is ->");
+          if (this.debug) console.log(answer);
         }
       }).catch(error => {
-        console.log("[DEBUG_CONSOLE]: Error ->");
-        console.log(error);
+        if (this.debug) console.log("[DEBUG_CONSOLE]: Error ->");
+        if (this.debug) console.log(error);
       });
     }
   }
