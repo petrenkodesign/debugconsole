@@ -5,7 +5,7 @@ var debugconsole = {
   console_id: "debug_console",
   console_content_id: "debug_console_content",
   api_key: "AIzaSyCG3QhiTLX26Rj84CZn0qXGFd",
-  debug: false,
+  debug: true,
 
   start(status=this.status) {
     if(status!==this.status) this.status = status;
