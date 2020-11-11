@@ -5,12 +5,17 @@ var debugconsole = {
   console_id: "debug_console",
   console_content_id: "debug_console_content",
   api_key: "AIzaSyCG3QhiTLX26Rj84CZn0qXGFd",
+  client_id: null,
   debug: true,
 
   start(status=this.status) {
     if(status!==this.status) this.status = status;
     window.onerror = function (msg, url, lnum) {
-      debugconsole.log("Error: "+msg+"<br> URL:"+url+"<br> LineNumber:"+lnum, true, true);
+      sending_data = {
+        msg: "[ERROR]: "+msg+"<br> URL:"+url+"<br> LineNumber:"+lnum,
+        client_id: debugconsole.client_id
+      }
+      debugconsole.log(sending_data.msg, sending_data, true);
     }
     if (this.status=="dblog" || this.status=="log") {
       // add to project css link
