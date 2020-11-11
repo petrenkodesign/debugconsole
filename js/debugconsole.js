@@ -10,7 +10,7 @@ var debugconsole = {
   start(status=this.status) {
     if(status!==this.status) this.status = status;
     window.onerror = function (msg, url, lnum) {
-      debugconsole.log("Error: "+msg+"<br> URL:"+url+"<br> LineNumber:"+lnum, false, true);
+      debugconsole.log("Error: "+msg+"<br> URL:"+url+"<br> LineNumber:"+lnum, true, true);
     }
     if (this.status=="dblog" || this.status=="log") {
       // add to project css link
