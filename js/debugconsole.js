@@ -73,17 +73,23 @@ var debugconsole = {
       var params = { key: this.api_key, do: "savelog", data: JSON.stringify(sending_data)}; // sending_data = { msg: "logdata", client_id: "IMEI", ip: "222.222.222.222", fcm: "FCM_ID"};
       url.search = new URLSearchParams(params).toString();
 
-      fetch(url)
-      .then(answer => {
-        if (answer.status==200 && this.debug) console.log("[DEBUG_CONSOLE]: Data send to API");
-        else {
-          if (this.debug) console.log("[DEBUG_CONSOLE]: API answer is ->");
-          if (this.debug) console.log(answer);
+      var xrequest = new XMLHttpRequest();
+      xrequest.onload = function() {
+        if (this.debug) {
+          var answer = JSON.parse(this.responseText);
+          console.log("[DEBUG_CONSOLE]: API answer is ->");
+          console.log(answer);
         }
-      }).catch(error => {
-        if (this.debug) console.log("[DEBUG_CONSOLE]: Error ->");
-        if (this.debug) console.log(error);
-      });
+      }
+      xrequest.onerror = function(error) {
+        if (this.debug) {
+          console.log("[DEBUG_CONSOLE]: Error ->");
+          console.log(error);
+        }
+      }
+      xrequest.open('GET', url, true);
+      xrequest.send();
+
     }
   }
 
