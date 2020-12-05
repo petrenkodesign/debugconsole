@@ -71,7 +71,11 @@ var debugconsole = {
       var url = new URL("https://console.smartfactory.com.ua/api/");
       sending_data.msg = content;
       var params = { key: this.api_key, do: "savelog", data: JSON.stringify(sending_data)}; // sending_data = { msg: "logdata", client_id: "IMEI", ip: "222.222.222.222", fcm: "FCM_ID"};
-      url.search = new URLSearchParams(params).toString();
+      // url.search = new URLSearchParams(params).toString();
+      var query = Object.keys(params).map((key) => {
+          return encodeURIComponent(key) + '=' + encodeURIComponent(params[key])
+      }).join('&');
+      url.search = query;
 
       var xrequest = new XMLHttpRequest();
       xrequest.onload = function() {
