@@ -8,7 +8,8 @@ var debugconsole = {
   client_id: "[NOID]",
   debug: false,
 
-  start(status=this.status) {
+  start(status) {
+    if(!status) status=this.status;
     if(status!==this.status) this.status = status;
     window.onerror = function (msg, url, lnum) {
       sending_data = {
